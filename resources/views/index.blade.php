@@ -45,22 +45,32 @@ https://templatemo.com/tm-535-softy-pinko
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="#" class="logo">
-                            <img src="assets/images/logo.png" alt="Softy Pinko"/>
+                            <img src="assets/images/logo.png" alt="Uniten"/>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="#welcome" class="active">Home</a></li>
-                            <li><a href="#deliverables">About</a></li>
+                            <li><a href="#deliverables">FYP1 Deliverables</a></li>
                             <li><a href="#countdown">Countdown</a></li>
+                            @auth
+                                <li><a href="/dashboard">Dashboard</a></li>
+                                
+                                {{-- <x-app-layout class="max-width-16"></x-app-layout> --}}
+                                
+                            @else
+                                <li><a href="{{ route('login') }}">Log in</a></li>
+
+                                @if (Route::has('register'))
+                                    <li><a href="{{ route('register') }}">Register</a></li>
+                                @endif
+                            @endauth
                             {{-- <li><a href="#testimonials">Testimonials</a></li>
                             <li><a href="#pricing-plans">Pricing Tables</a></li>
                             <li><a href="#blog">Blog Entries</a></li>
                             <li><a href="#contact-us">Contact Us</a></li> --}}
                         </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
+                        
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
