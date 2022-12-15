@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [homeControl::class, 'index']); 
 
 Route::get('/index', [homeControl::class, 'index']); 
  
@@ -40,5 +38,23 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', [dbControl::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [dbControl::class, 'supervised'])->name('dashboard');
 });
+
+Route::get("/students", [dbControl::class, 'students']); 
+
+Route::get("/users", [dbControl::class, 'users']); 
+
+Route::get("/projects", [dbControl::class, 'listprojects']); 
+
+Route::get("/details/{id}", [dbControl::class, 'details']);
+
+Route::get("/update/{id}", [dbControl::class, 'update']);
+
+Route::get('/supervised', [dbControl::class, 'supervised']);
+
+Route::post('/updated', [dbControl::class, 'updateProject']); 
+
+Route::get('/create', [dbControl::class, 'create']); 
+
+Route::post('/created', [dbControl::class, 'createProject']); 

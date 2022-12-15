@@ -10,5 +10,8 @@ class homeControl extends Controller
         return view('index'); 
     }
 
+    function db(){
+        return view('userdashboard'); 
+    }
 }
 
