@@ -73,7 +73,16 @@
                                 </tr>
                                 <tr>
                                     <th>Title</th>
-                                    <td><input class="form-control" type="text" name="title" value="{{ $project->title }}""></td>
+                                    <td><input class="form-control" type="text" name="title" value="{{ $project->title }}"></td>
+                                </tr>
+                                <tr>
+                                    <th>Category</th>
+                                    <td>
+                                        <select class="form-control"  name="category">
+                                            <option {{old('category',$project->category)=="Research"? 'selected':''}} value="Research">Research</option>
+                                            <option {{old('category',$project->category)=="Development"? 'selected':''}} value="Development">Development</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Start Date</th>

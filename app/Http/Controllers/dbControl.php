@@ -92,6 +92,8 @@ class dbControl extends Controller
         $project = Project::find($id); 
 
         $project->title = $req->input('title'); 
+        
+        $project->category = $req->input('category'); 
 
         $project->startDate = $req->input('startDate'); 
         
@@ -123,9 +125,11 @@ class dbControl extends Controller
 
         $req->validate([
             'studentId' => 'required|unique:projects,studentId', 
-            'supervisorId' => 'different:examiner1Id', 
-            'examiner1Id' => 'different:examiner2Id', 
-            'supervisorId' => 'different:examiner2Id'
+             
+            'supervisorId' => 'different:examiner2Id', 
+            'examiner1Id' => 'different:examiner2Id',
+            'examiner2Id' => 'different:examiner1Id',
+            'supervisorId' => 'different:examiner1Id' 
         ]); 
 
         $project = new Project; 
@@ -138,6 +142,16 @@ class dbControl extends Controller
         $project->save(); 
 
         return redirect('/projects'); 
+    }
+
+    function addstudent(Request $req){
+        $student = new Student; 
+
+        $student->name = $req->input('name'); 
+
+        $student->save();
+
+        return redirect('/students'); 
     }
 
 }

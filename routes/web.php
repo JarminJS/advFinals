@@ -58,3 +58,5 @@ Route::post('/updated', [dbControl::class, 'updateProject']);
 Route::get('/create', [dbControl::class, 'create']); 
 
 Route::post('/created', [dbControl::class, 'createProject']); 
+
+Route::post('/addstudent', [dbControl::class, 'addStudent']); 

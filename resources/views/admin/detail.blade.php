@@ -70,6 +70,10 @@
                                     <td>{{ $project->title }}</td>
                                 </tr>
                                 <tr>
+                                    <th>Category</th>
+                                    <td>{{ $project->category }}</td>
+                                </tr>
+                                <tr>
                                     <th>Start Date</th>
                                     <td>{{ $project->startDate }}</td>
                                 </tr>

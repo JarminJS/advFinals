@@ -24,9 +24,10 @@ return new class extends Migration
             $table->unsignedBigInteger('examiner2Id'); 
             $table->foreign('examiner2Id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title')->nullable(); 
+            $table->string('category')->nullable(); 
             $table->date('startDate')->nullable(); 
             $table->date('endDate')->nullable(); 
-            $table->date('duration')->nullable(); 
+            $table->integer('duration')->nullable(); 
             $table->string('progress')->nullable(); 
             $table->string('status')->nullable();   
             $table->timestamps();
