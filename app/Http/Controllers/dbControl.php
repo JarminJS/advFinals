@@ -31,7 +31,7 @@ class dbControl extends Controller
             return view('admin.unauthorized'); 
         }
 
-        $projects = Project::paginate(10); 
+        $projects = Project::paginate(4); 
 
         return view('admin.listprojects', ["projects" => $projects]); 
     }
